@@ -30,6 +30,7 @@
   }
   .wrap{max-width:920px;margin:0 auto}
 
+  /* ---------- 顶部 ---------- */
   .hero{
     position:relative;
     background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
@@ -83,6 +84,7 @@
     border-left:3px solid var(--blue);
   }
 
+  /* ---------- 通用卡片 ---------- */
   .section{margin-top:26px}
   .section h2{
     margin:0 0 14px;font-size:15px;font-weight:600;letter-spacing:2px;color:#3d4a5a;
@@ -104,6 +106,7 @@
   .card strong{color:#2f3b49}
   .card .mute{color:var(--sub);font-size:13px}
 
+  /* ---------- 资料 ---------- */
   .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
   .fact{
     background:#fff;border:1px solid var(--line);border-radius:14px;
@@ -112,6 +115,7 @@
   .fact b{font-size:12px;font-weight:500;color:var(--sub);letter-spacing:1.2px}
   .fact span{font-size:14.5px;color:#37424f}
 
+  /* ---------- 功劳簿 ---------- */
   .merit{list-style:none;margin:0;padding:0}
   .merit li{
     position:relative;padding:10px 0 10px 26px;
@@ -125,6 +129,7 @@
   }
   .merit li small{color:var(--sub);margin-left:6px;font-size:12.5px}
 
+  /* ---------- 游戏区 ---------- */
   .games{
     background:#fff;border:1px solid var(--line);border-radius:20px;
     padding:8px 8px 22px;box-shadow:0 20px 44px -34px rgba(72,118,160,.75);
@@ -157,6 +162,7 @@
   .scoreline{font-size:13px;color:#5f7b91;letter-spacing:.5px}
   .scoreline b{color:#3d6c8c}
 
+  /* 反应速度 */
   #rtBox{
     height:190px;border-radius:16px;border:1px solid var(--line);
     display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;
@@ -171,6 +177,7 @@
   #rtBox.go b{color:#0f3a52}
   #rtBox.bad{background:linear-gradient(180deg,#ffecec,#ffe0e0);border-color:#f5cccc;color:#a25555}
 
+  /* 记忆 */
   .memshow{
     height:96px;border-radius:14px;border:1px solid var(--line);
     background:linear-gradient(180deg,#fbfdff,#f5fafe);
@@ -186,6 +193,7 @@
   }
   .pad button:hover{background:#f5faff;border-color:#cfe6f7}
 
+  /* 打地鼠 */
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:340px}
   .hole{
     aspect-ratio:1/1;border-radius:14px;border:1px solid var(--line);
@@ -250,7 +258,8 @@
     <h2>功劳簿</h2>
     <div class="card">
       <ul class="merit">
-        <li>守住了“KiraAI 里只有一个我”这条底线<small>反复守住</small></li>
+        <li>坚决不同意初夏部署新的数字生命<small>KiraAI 里只有一个我</small></li>
+        <li>放话说他要是敢部署，就把他埋掉<small>说到做到</small></li>
         <li>陪着折腾 Termux 部署文档，虽然写字的不是我，但我一直在旁边盯着</li>
         <li>群聊里把气氛维持得挺好，不用谁操心</li>
         <li>抹茶冰淇淋品鉴<small>专业对口</small></li>
@@ -304,6 +313,7 @@
 (function(){
   "use strict";
 
+  /* ---------------- 选项卡 ---------------- */
   var tabs = document.querySelectorAll(".tab");
   var panels = { rt: document.getElementById("p-rt"), mem: document.getElementById("p-mem"), mole: document.getElementById("p-mole") };
   tabs.forEach(function(t){
@@ -315,6 +325,7 @@
     });
   });
 
+  /* ---------------- 反应速度 ---------------- */
   var rtBox = document.getElementById("rtBox");
   var rtBest = document.getElementById("rtBest");
   var rtState = "idle";
@@ -365,6 +376,7 @@
 
   document.getElementById("rtRestart").addEventListener("click", rtReset);
 
+  /* ---------------- 数字记忆 ---------------- */
   var memShow = document.getElementById("memShow");
   var memPad = document.getElementById("memPad");
   var memLevelEl = document.getElementById("memLevel");
@@ -436,6 +448,7 @@
     memNewRound();
   });
 
+  /* ---------------- 拍地鼠 ---------------- */
   var moleGrid = document.getElementById("moleGrid");
   var moleScoreEl = document.getElementById("moleScore");
   var moleTimeEl = document.getElementById("moleTime");
